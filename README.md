@@ -44,21 +44,21 @@ Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for tra
 
 1. Training with ROSE-First on QNLI
 ```bash
-#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
+#                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
 ```
 
 2. Training with ROSE-Second on QNLI
 
 ```bash
-#                              [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [task name]  
-bash run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
+#                                [model name]  [n_gpu]   [lr]   [bs] [seed] [upper_thd] [lower_thd]  [task name]  
+bash run_train_sparse_second.sh  roberta-base     1    0.00001   32   8910       60          0          qnli
 ```
 
 3. Training with ROSE-Ensemble on QNLI
 
 ```bash
-#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name] [gamma]
+#                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  [gamma]
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
 ```
 
