@@ -1,7 +1,7 @@
 # ROSE
-| <img src="https://github.com/jiangllan/ROSE/blob/main/docs/raw.pdf" alt="space-1.jpg" style="zoom: 33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/overfit.pdf" alt="space-1.jpg" style="zoom:33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/vanilla.pdf" alt="space-1.jpg" style="zoom:33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/ensemble.pdf" alt="space-1.jpg" style="zoom: 33%;" /> |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                       w/o Fine-Tuning                        |                           Overfit                            |                     Vanilla Fine-Tuning                      |                        ROSE-Ensemble                         |
+
+![image.png](./docs/raw.png "w/o Fine-Tuning")
+
 
 Codes for paper "ROSE: Robust Selective Fine-tuning for Pre-trained Language Models".
 
