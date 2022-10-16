@@ -1,9 +1,8 @@
-# ROSE
+# ROSE: Robust Selective Fine-tuning for Pre-trained Language Models
 
-<p align="center"> <img src='docs/rose.png' align="center" height="250px"> </p>
+## News
 
-
-Codes for paper "ROSE: Robust Selective Fine-tuning for Pre-trained Language Models".
+- Update on 2-22/10/16: Our paper has been accepted to EMNLP 2022!
 
 ## Contents
 
@@ -16,30 +15,54 @@ Codes for paper "ROSE: Robust Selective Fine-tuning for Pre-trained Language Mod
 
 We present an ***attack-agnostic*** and ***model-agnostic*** defense method called **RO**bust **SE**letive fine-tuning (**ROSE**).
 ROSE conducts selective updates when adapting pre-trained models to downstream tasks, filtering out invaluable and unrobust updates of parameters.
-Specifically, we propose two strategies: the first-order and second-order ROSE for selecting target robust parameters.
-The experimental results show that ROSE achieves significant improvements in adversarial robustness on various downstream NLP tasks, and the ensemble method even surpasses both variants above.
+The experimental results show that ROSE achieves significant improvements in adversarial robustness on various downstream NLP tasks.
 Furthermore, ROSE can be easily incorporated into existing fine-tuning methods to improve their adversarial robustness further.
-The empirical analysis confirms that ROSE eliminates unrobust spurious updates during fine-tuning, leading to solutions corresponding to flatter and wider optima than the conventional method. For more details. please refer to our paper.
+ROSE eliminates unrobust spurious updates during fine-tuning, leading to solutions corresponding to flatter and wider optima than the conventional method. The following figure is an illustration of our models.
+
+<p align="center"> <img src='docs/rose.png' align="center" height="250px"> </p>
 
 ## Usage
 
-
-
 ### Requirements
 
-Install dependencies and apex:
++ Python 3.8
 
-```
+Install dependencies:
 
+```bash
+pip intall -r requirment.txt
 ```
 
 ### Training and Evaluation
 
-1. Training with ROSE 
+Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for training and test commands.
 
-2. Evaluation on 
+1. Training with ROSE-First on QNLI
+```bash
+#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
+sh run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
+```
 
-   Please refer to "runs/tr"
+2. Training with ROSE-Second on QNLI
+
+```bash
+#                              [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [task name]  
+sh run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
+```
+
+3. Training with ROSE-Ensemble on QNLI
+
+```bash
+#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name] [gamma]
+sh run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
+```
+
+4. Evaluation 
+
+```bash
+#                   [model name]  [task name]
+sh run_test_adv.sh  roberta-base     qnli
+```
 
 ## Contacts
 
