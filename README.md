@@ -1,16 +1,16 @@
 # ROSE
 
-![image.png](./docs/raw.png "w/o Fine-Tuning")
+<p align="center"> <img src='docs/rose.png' align="center" height="250px"> </p>
 
 
 Codes for paper "ROSE: Robust Selective Fine-tuning for Pre-trained Language Models".
 
 ## Contents
 
-1. Introduction
-2. Usage
-3. Contacts
-4. Acknowledgements
+1. [Introduction](#introduction)
+2. [Usage](#usage)
+3. [Contacts](#contacts)
+4. [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
