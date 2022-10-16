@@ -1,7 +1,7 @@
 # ROSE
-| <img src="./docs/raw_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom: 33%;" /> |<img src="./docs/overfit_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom:33%;" />|<img src="./docs/vanilla_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom:33%;" />|<img src="./docs/ensemble_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom: 33%;" />|
-|:--:|:--:|:--:|:--:| 
-|w/o Fine-Tuning  |Overfit|Vanilla Fine-Tuning|ROSE-Ensemble|
+| <img src="https://github.com/jiangllan/ROSE/blob/main/docs/raw_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom: 33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/overfit_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom:33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/vanilla_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom:33%;" /> | <img src="https://github.com/jiangllan/ROSE/blob/main/docs/ensemble_base_3D_log_surface_mts_12000_[-0.25,0.25,51]x[-0.25,0.25,51].pdf" alt="space-1.jpg" style="zoom: 33%;" /> |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|                       w/o Fine-Tuning                        |                           Overfit                            |                     Vanilla Fine-Tuning                      |                        ROSE-Ensemble                         |
 
 Codes for paper "ROSE: Robust Selective Fine-tuning for Pre-trained Language Models".
 
