@@ -109,7 +109,6 @@ from transformers.trainer_utils import (
     speed_metrics,
 )
 from transformers.utils import logging
-from transformers.utils.modeling_auto_mapping import MODEL_FOR_QUESTION_ANSWERING_MAPPING_NAMES
 
 from robustSSANs.utils.optimization import SparseAdamW, get_scheduler
 
@@ -229,7 +228,6 @@ class MyTrainer(Trainer):
                     do_sparse=self.args.do_sparse,
                     upper=self.args.upper,
                     lower=self.args.lower,
-                    granularity=self.args.granularity,
                     sparse_first=self.args.sparse_first,
                     sparse_second=self.args.sparse_second,
                     gamma=self.args.gamma,

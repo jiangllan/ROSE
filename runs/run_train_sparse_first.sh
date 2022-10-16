@@ -26,7 +26,7 @@ echo "train_batch_size: $train_batch_size"
 export CUDA_DEVICE_ORDER="PCI_BUS_ID"
 python -m torch.distributed.launch \
  --nproc_per_node ${n_GPU} \
- --master_port $RANDOM ../ROSE/run_classification.py \
+ --master_port $RANDOM ../run_classification.py \
  --model_name_or_path ${model_name} \
  --do_eval \
  --output_dir ../ROSE/temp/${model_name}/sparse_first/${task}_l${lower}_u${upper}_d${write_dropout}/bs${train_batch_size}_lr${write_lr}_seed${seed} \

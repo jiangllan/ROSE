@@ -1,8 +1,6 @@
 # ROSE: Robust Selective Fine-tuning for Pre-trained Language Models
 
-## News
-
-- Update on 2-22/10/16: Our paper has been accepted to EMNLP 2022!
+This repo contains the code of our EMNLP 2022 paper, ROSE: Robust Selective Fine-tuning for Pre-trained Language Models.
 
 ## Contents
 
@@ -19,54 +17,70 @@ The experimental results show that ROSE achieves significant improvements in adv
 Furthermore, ROSE can be easily incorporated into existing fine-tuning methods to improve their adversarial robustness further.
 ROSE eliminates unrobust spurious updates during fine-tuning, leading to solutions corresponding to flatter and wider optima than the conventional method. The following figure is an illustration of our models.
 
-<p align="center"> <img src='docs/rose.png' align="center" height="250px"> </p>
+<p align="center"> <img src='docs/rose.png' align="center" height="280px"> </p>
 
 ## Usage
 
 ### Requirements
 
-+ Python 3.8
-
-Install dependencies:
+Install dependencies and apex:
 
 ```bash
+conda create -n rose python=3.8
+conda activate rose
+
+git clone https://github.com/thunlp/CorefBERT.git && cd ROSE
 pip intall -r requirment.txt
+
+git clone https://github.com/NVIDIA/apex
+cd apex && pip install -v --no-cache-dir ./
 ```
 
 ### Training and Evaluation
 
 Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for training and test commands.
 
+#### Training
+
 1. Training with ROSE-First on QNLI
 ```bash
 #                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
-sh run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
+bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
 ```
 
 2. Training with ROSE-Second on QNLI
 
 ```bash
 #                              [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [task name]  
-sh run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
+bash run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
 ```
 
 3. Training with ROSE-Ensemble on QNLI
 
 ```bash
 #                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name] [gamma]
-sh run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
+bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
 ```
 
-4. Evaluation 
+#### Evaluation
+
+1. Evaluation on GLUE
 
 ```bash
-#                   [model name]  [task name]
-sh run_test_adv.sh  roberta-base     qnli
+#                     [path to checkpoint]  [task name]
+bash run_test_ori.sh       ../temp/..          qnli
+```
+
+2. Evaluation  on AdvGLUE
+
+```bash
+#                     [path to checkpoint]  [task name]
+bash run_test_adv.sh       ../temp/..          qnli
 ```
 
 ## Contacts
 
-Jiangl20 at mails dot tsinghua dot edu dot cn
+jiangl20 at mails dot tsinghua dot edu dot cn
 
 ## Acknowledgements
 

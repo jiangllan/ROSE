@@ -292,7 +292,7 @@ def main():
             label_list = datasets["train"].features["label"].names
         else:
             label_list = datasets["validation"].features["label"].names
-            num_labels = len(label_list)
+        num_labels = len(label_list)
         is_regression = False
     else:
         # Trying to have good defaults here, don't hesitate to tweak to your needs.
