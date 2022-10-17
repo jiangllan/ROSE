@@ -17,7 +17,7 @@ The experimental results show that ROSE achieves significant improvements in adv
 Furthermore, ROSE can be easily incorporated into existing fine-tuning methods to improve their adversarial robustness further.
 ROSE eliminates unrobust spurious updates during fine-tuning, leading to solutions corresponding to flatter and wider optima than the conventional method. The following figure is an illustration of our models.
 
-<p align="center"> <img src='docs/rose.png' align="center" height="260px"> </p>
+<p align="center"> <img src='docs/rose.png' align="center" height="250px"> </p>
 
 ## Usage
 
