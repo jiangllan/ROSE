@@ -50,14 +50,11 @@ bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       6
 
 For each task, we report the specific settings of several important hyper-parameters:
 
-| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
-| ---------------------- | ---- | ---- | ---- | ----- |
-| RoBERTa$_\text{Base}$  |      |      |      |       |
-| `--lr`                 | 2e-5 | 2e-5 | 4e-5 | 2e-5  |
-| `--upper`              | 70   | 70   | 80   | 60    |
-| RoBERTa$_\text{Large}$ |      |      |      |       |
-| `--lr`                 | 3e-5 | 2e-5 | 1e-5 | 4e-5  |
-| `--upper`              | 50   | 70   | 80   | 70    |
+| Hyper-parameter | QNLI                         | QQP  | RTE  | SST-2 | QNLI                          | QQP  | RTE  | SST-2 |
+| --------------- | ---------------------------- | ---- | ---- | ----- | ----------------------------- | ---- | ---- | ----- |
+|                 | $\text{RoBERTa}_\text{Base}$ |      |      |       | $\text{RoBERTa}_\text{Large}$ |      |      |       |
+| `--lr`          | 2e-5                         | 2e-5 | 4e-5 | 2e-5  | 3e-5                          | 2e-5 | 1e-5 | 4e-5  |
+| `--upper`       | 70                           | 70   | 80   | 60    | 50                            | 70   | 80   | 70    |
 
 2. Training with ROSE-Second on QNLI
 
@@ -68,14 +65,11 @@ bash run_train_sparse_second.sh  roberta-base     1    0.00001   32   8910      
 
 For each task, we report the specific settings of several important hyper-parameters:
 
-| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
-| ---------------------- | ---- | ---- | ---- | ----- |
-| RoBERTa$_\text{Base}$  |      |      |      |       |
-| `--lr`                 | 1e-5 | 1e-4 | 4e-5 | 1e-4  |
-| `--upper`              | 40   | 60   | 60   | 30    |
-| RoBERTa$_\text{Large}$ |      |      |      |       |
-| `--lr`                 | 1e-5 | 1e-5 | 2e-5 | 1e-5  |
-| `--upper`              | 50   | 60   | 50   | 50    |
+| Hyper-parameter | QNLI                         | QQP  | RTE  | SST-2 | QNLI                          | QQP  | RTE  | SST-2 |
+| --------------- | ---------------------------- | ---- | ---- | ----- | ----------------------------- | ---- | ---- | ----- |
+|                 | $\text{RoBERTa}_\text{Base}$ |      |      |       | $\text{RoBERTa}_\text{Large}$ |      |      |       |
+| `--lr`          | 1e-5                         | 1e-4 | 4e-5 | 1e-4  | 1e-5                          | 1e-5 | 2e-5 | 1e-5  |
+| `--upper`       | 40                           | 60   | 60   | 30    | 50                            | 60   | 50   | 50    |
 
 3. Training with ROSE-Ensemble on QNLI
 
@@ -86,16 +80,13 @@ bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       6
 
 For each task, we report the specific settings of several important hyper-parameters:
 
-| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
-| ---------------------- | ---- | ---- | ---- | ----- |
-| RoBERTa$_\text{Base}$  |      |      |      |       |
-| `--lr`                 | 1e-5 | 5e-5 | 4e-5 | 5e-5  |
-| `--upper`              | 90   | 75   | 80   | 40    |
-| RoBERTa$_\text{Large}$ |      |      |      |       |
-| `--lr`                 | 1e-5 | 1e-5 | 1e-5 | 1e-5  |
-| `--upper`              | 30   | 80   | 85   | 70    |
+| Hyper-parameter | QNLI                         | QQP  | RTE  | SST-2 | QNLI                          | QQP  | RTE  | SST-2 |
+| --------------- | ---------------------------- | ---- | ---- | ----- | ----------------------------- | ---- | ---- | ----- |
+|                 | $\text{RoBERTa}_\text{Base}$ |      |      |       | $\text{RoBERTa}_\text{Large}$ |      |      |       |
+| `--lr`          | 1e-5                         | 5e-5 | 4e-5 | 5e-5  | 1e-5                          | 1e-5 | 1e-5 | 1e-5  |
+| `--upper`       | 90                           | 75   | 80   | 40    | 30                            | 80   | 85   | 70    |
 
-2. 
+#### Evaluation
 
 1. Evaluation on GLUE
 
