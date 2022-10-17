@@ -29,7 +29,7 @@ Install dependencies and apex:
 conda create -n rose python=3.8
 conda activate rose
 
-git clone https://github.com/thunlp/CorefBERT.git && cd ROSE
+git clone https://github.com/jiangllan/ROSE.git && cd ROSE
 pip intall -r requirment.txt
 
 git clone https://github.com/NVIDIA/apex
