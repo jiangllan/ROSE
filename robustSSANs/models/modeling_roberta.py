@@ -202,46 +202,6 @@ class RobertaSelfAttention(nn.Module):
 
         self.is_decoder = config.is_decoder
         self.activation = nn.Softmax(dim=-1)
-        # if isinstance(config.activation, list):
-        #     if config.activation[which_layer] == "sparsegen":
-        #         logger.info(f"The activation of the {which_layer + 1} layer is {config.activation[which_layer]} with "
-        #                     f"lambda = {config.lam[which_layer]}")
-        #         self.activation = Sparsegen_lin(lam=config.lam[which_layer])
-        #     elif config.activation[which_layer] == "softmax":
-        #         logger.info(f"The activation of the {which_layer + 1} layer is {config.activation[which_layer]}")
-        #         self.activation = nn.Softmax(dim=-1)
-        #     elif config.activation[which_layer] == "gumbel":
-        #         logger.info(f"The activation of the {which_layer + 1} layer is {config.activation[which_layer]} with "
-        #                     f"tau = {config.tau}")
-        #         self.activation = GumbelSoftmax(tau=config.tau, dim=-1)
-        #     elif config.activation[which_layer] == "sparsemax":
-        #         logger.info(f"The activation of the {which_layer + 1} layer is {config.activation[which_layer]}")
-        #         self.activation = Sparsemax(dim=-1)
-        #     elif config.activation[which_layer] == "entmax":
-        #         layer_alpha = 2 + (1 - which_layer / (config.num_hidden_layers - 1)) ** 1.5
-        #         self.activation = alpha_entmax(init_alpha=layer_alpha)
-        #         logger.info(f"The activation of the {which_layer + 1} layer is {config.activation[which_layer]} with "
-        #                     f"alpha = {layer_alpha}")
-        #     else:
-        #         raise ValueError("Error Activation Function.")
-        # elif isinstance(config.activation, str):
-        #     if config.activation == "sparsegen":
-        #         if which_layer == 0:
-        #             logger.info(f"The activation of the all layers is {config.activation} with "
-        #                         f"lambda = {config.lam}")
-        #         self.activation = Sparsegen_lin(lam=config.lam)
-        #     elif config.activation == "softmax":
-        #         self.activation = nn.Softmax(dim=-1)
-        #     elif config.activation == "gumbel":
-        #         self.activation = GumbelSoftmax(tau=config.tau, dim=-1)
-        #     elif config.activation == "sparsemax":
-        #         self.activation = Sparsemax(dim=-1)
-        #     elif config.activation == "entmax":
-        #         self.activation = alpha_entmax()
-        #     else:
-        #         raise ValueError("Error Activation Function.")
-        # else:
-        #     raise TypeError("Invalid config.activation Type.")
 
     def transpose_for_scores(self, x):
         new_x_shape = x.size()[:-1] + (self.num_attention_heads, self.attention_head_size)

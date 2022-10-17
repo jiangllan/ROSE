@@ -625,6 +625,7 @@ class TrainingArguments:
         default="",
         metadata={"help": "Used by the SageMaker launcher to send mp-specific args. Ignored in Trainer"},
     )
+    # For ROSE
     do_sparse: bool = field(
         default=False, metadata={"help": "Whether or not to do sparse during training."}
     )

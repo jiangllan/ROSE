@@ -161,10 +161,6 @@ class SparseAdamW(Optimizer):
                     bias_correction2 = 1.0 - beta2 ** state["step"]
                     step_size = step_size * math.sqrt(bias_correction2) / bias_correction1
 
-                # if self.mode == "sparse-incre" and "output.dense.weight" in n:
-                # if self.mode == "sparse-incre" and "intermediate.dense.weight" in n:
-                #     exp_avg *= self.gradient_mask[n]
-
                 # p.data.addcdiv_(exp_avg, denom, value=-step_size)
                 p.data.addcdiv_(exp_avg.mul(mask), denom, value=-step_size)
 
@@ -177,7 +173,6 @@ class SparseAdamW(Optimizer):
                 # of the weights to the loss with plain (non-momentum) SGD.
                 # Add weight decay at the end (fixed version)
                 if group["weight_decay"] > 0.0:
-                    # p.data.add_(p.data, alpha=(-group["lr"] * group["weight_decay"]))
                     p.data.add_(p.data.mul(mask), alpha=(-group["lr"] * group["weight_decay"]))
 
         return loss
@@ -217,13 +212,7 @@ class SparseAdamW(Optimizer):
         else:
             self.gradient_mask.update(gradient_mask)
 
-        if self.sparse_first and self.sparse_second and type == "kl":
-            pass
-        else:
-            self.record_saliency(steps, self.gradient_mask["param"])
-
     def calculate_first_order_param_mask(self, params_saliency, steps):
-        # self.record_saliency(steps, params_saliency)
         lower, upper = torch.quantile(params_saliency, self.reserve_intvl)
         mask = (params_saliency >= lower) & (params_saliency <= upper)
         return mask.float()
@@ -231,7 +220,6 @@ class SparseAdamW(Optimizer):
     def calculate_second_order_param_mask(self, params_norm, params_his_norm, steps):
         if params_his_norm is not None:
             params_saliency = torch.abs(0.1 * params_norm.div(params_his_norm) - 1.)
-            # self.record_saliency(steps, params_saliency)
             lower, upper = torch.quantile(params_saliency, self.reserve_intvl)
             mask = (params_saliency >= lower) & (params_saliency <= upper)
         else:
@@ -252,22 +240,3 @@ class SparseAdamW(Optimizer):
         else:
             mask = torch.ones_like(param_grad, dtype=torch.bool)
         return mask.float()
-
-    def write_to_file(self, params_saliency, steps):
-        if params_saliency.dtype == torch.bool:
-            params_saliency = params_saliency.cpu().numpy()
-            line = "%d " % steps + " ".join(format(x, "0.0f") for x in params_saliency) + "\n"
-        else:
-            params_saliency = torch.argsort(params_saliency).cpu().numpy()
-            line = "%d " % steps + " ".join(format(x, "0.8f") for x in params_saliency) + "\n"
-        f = open(os.path.join(self.save_dir, "saliency.npy"), "a")
-        f.write(line)
-        # f.close()
-
-    def record_saliency(self, steps, params_saliency):
-        # record saliency
-        if not steps:
-            if os.path.exists(os.path.join(self.save_dir, "saliency.npy")):
-                os.system("rm %s" % os.path.join(self.save_dir, "saliency.npy"))
-        if steps % 10 == 0 and steps > self.num_warmup_steps:
-            self.write_to_file(params_saliency, steps)
