@@ -17,7 +17,7 @@ The experimental results show that ROSE achieves significant improvements in adv
 Furthermore, ROSE can be easily incorporated into existing fine-tuning methods to improve their adversarial robustness further.
 ROSE eliminates unrobust spurious updates during fine-tuning, leading to solutions corresponding to flatter and wider optima than the conventional method. The following figure is an illustration of our models.
 
-<p align="center"> <img src='docs/rose.png' align="center" height="280px"> </p>
+<p align="center"> <img src='docs/rose.png' align="center" height="260px"> </p>
 
 ## Usage
 
@@ -29,7 +29,7 @@ Install dependencies and apex:
 conda create -n rose python=3.8
 conda activate rose
 
-git clone https://github.com/thunlp/CorefBERT.git && cd ROSE
+git clone https://github.com/jiangllan/ROSE.git && cd ROSE
 pip intall -r requirment.txt
 
 git clone https://github.com/NVIDIA/apex
@@ -44,7 +44,7 @@ Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for tra
 
 1. Training with ROSE-First on QNLI
 ```bash
-#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
+#                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
 ```
 
@@ -62,8 +62,8 @@ For each task, we report the specific settings of several important hyper-parame
 2. Training with ROSE-Second on QNLI
 
 ```bash
-#                              [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [task name]  
-bash run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
+#                                [model name]  [n_gpu]   [lr]   [bs] [seed] [upper_thd] [lower_thd]  [task name]  
+bash run_train_sparse_second.sh  roberta-base     1    0.00001   32   8910       60          0          qnli
 ```
 
 For each task, we report the specific settings of several important hyper-parameters:
@@ -80,7 +80,7 @@ For each task, we report the specific settings of several important hyper-parame
 3. Training with ROSE-Ensemble on QNLI
 
 ```bash
-#                             [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name] [gamma]
+#                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  [gamma]
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
 ```
 
