@@ -48,12 +48,34 @@ Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for tra
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
 ```
 
+For each task, we report the specific settings of several important hyper-parameters:
+
+| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
+| ---------------------- | ---- | ---- | ---- | ----- |
+| RoBERTa$_\text{Base}$  |      |      |      |       |
+| `--lr`                 | 2e-5 | 2e-5 | 4e-5 | 2e-5  |
+| `--upper`              | 70   | 70   | 80   | 60    |
+| RoBERTa$_\text{Large}$ |      |      |      |       |
+| `--lr`                 | 3e-5 | 2e-5 | 1e-5 | 4e-5  |
+| `--upper`              | 50   | 70   | 80   | 70    |
+
 2. Training with ROSE-Second on QNLI
 
 ```bash
 #                              [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [task name]  
 bash run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       60           0            qnli
 ```
+
+For each task, we report the specific settings of several important hyper-parameters:
+
+| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
+| ---------------------- | ---- | ---- | ---- | ----- |
+| RoBERTa$_\text{Base}$  |      |      |      |       |
+| `--lr`                 | 1e-5 | 1e-4 | 4e-5 | 1e-4  |
+| `--upper`              | 40   | 60   | 60   | 30    |
+| RoBERTa$_\text{Large}$ |      |      |      |       |
+| `--lr`                 | 1e-5 | 1e-5 | 2e-5 | 1e-5  |
+| `--upper`              | 50   | 60   | 50   | 50    |
 
 3. Training with ROSE-Ensemble on QNLI
 
@@ -62,7 +84,18 @@ bash run_train_sparse_second.sh  roberta-base     1    0.00001  32   8910       
 bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
 ```
 
-#### Evaluation
+For each task, we report the specific settings of several important hyper-parameters:
+
+| Hyper-parameter        | QNLI | QQP  | RTE  | SST-2 |
+| ---------------------- | ---- | ---- | ---- | ----- |
+| RoBERTa$_\text{Base}$  |      |      |      |       |
+| `--lr`                 | 1e-5 | 5e-5 | 4e-5 | 5e-5  |
+| `--upper`              | 90   | 75   | 80   | 40    |
+| RoBERTa$_\text{Large}$ |      |      |      |       |
+| `--lr`                 | 1e-5 | 1e-5 | 1e-5 | 1e-5  |
+| `--upper`              | 30   | 80   | 85   | 70    |
+
+2. 
 
 1. Evaluation on GLUE
 
