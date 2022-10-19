@@ -7,7 +7,7 @@ This repo contains the code of our EMNLP 2022 paper, ROSE: Robust Selective Fine
 1. [Introduction](#introduction)
 2. [Usage](#usage)
 3. [Contacts](#contacts)
-4. [Acknowledgments](#acknowledgments)
+4. [Acknowledgements](#acknowledgements)
 
 ## Introduction
 
@@ -45,7 +45,7 @@ Please refer to [runs](https://github.com/jiangllan/ROSE/tree/main/runs) for tra
 1. Training with ROSE-First on QNLI
 ```bash
 #                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  
-bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli
+bash run_train_sparse_first.sh  roberta-base     1    0.00002  32   8910       70           0          0.1        qnli
 ```
 
 For each task, we report the specific settings of several important hyper-parameters:
@@ -60,7 +60,7 @@ For each task, we report the specific settings of several important hyper-parame
 
 ```bash
 #                                [model name]  [n_gpu]   [lr]   [bs] [seed] [upper_thd] [lower_thd]  [task name]  
-bash run_train_sparse_second.sh  roberta-base     1    0.00001   32   8910       60          0          qnli
+bash run_train_sparse_second.sh  roberta-base     1    0.00001   32   8910       40          0          qnli
 ```
 
 For each task, we report the specific settings of several important hyper-parameters:
@@ -75,7 +75,7 @@ For each task, we report the specific settings of several important hyper-parame
 
 ```bash
 #                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  [gamma]
-bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       60           0          0.1        qnli        0.5
+bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       90           0          0.1        qnli        0.5
 ```
 
 For each task, we report the specific settings of several important hyper-parameters:
@@ -108,4 +108,4 @@ jiangl20 at mails dot tsinghua dot edu dot cn
 
 ## Acknowledgements
 
-This codebase is built on Huggingface's Transformers. Thanks to them!
+This codebase is built on [Huggingface's Transformers](https://github.com/huggingface/transformers/tree/v4.10.0). Thanks to them!
