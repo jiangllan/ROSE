@@ -75,7 +75,7 @@ For each task, we report the specific settings of several important hyper-parame
 
 ```bash
 #                               [model name]  [n_gpu]  [lr]   [bs] [seed] [upper_thd]  [lower_thd]  [dropout]  [task name]  [gamma]
-bash run_train_sparse_first.sh  roberta-base     1    0.00001  32   8910       90           0          0.1        qnli        0.5
+bash run_train_sparse_ensemble.sh  roberta-base     1    0.00001  32   8910       90           0          0.1        qnli        0.5
 ```
 
 For each task, we report the specific settings of several important hyper-parameters:
